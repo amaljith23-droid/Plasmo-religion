@@ -449,11 +449,25 @@ const SACRED_TEXTS = {
     const postBtn = document.getElementById('post-witness');
     const inputArea = document.getElementById('disciple-input');
     const feedArea = document.getElementById('disciple-feed');
+    const audio = document.getElementById('sacred-ambience');
+    const audioControl = document.getElementById('audio-control');
 
     if (!postBtn || !inputArea || !feedArea) return;
 
     // Load posts from localStorage or initialize empty
     let posts = JSON.parse(localStorage.getItem('luminism_disciple_posts')) || [];
+
+    // Scientific/Sacred Titles for Disciples
+    const DISCIPLE_NAMES = [
+        "Disciple Photon", "Seeker Neutron", "Walker Electron", "Witness Proton",
+        "Neutrino Observer", "Quark Truth", "Lepton Light", "Boson Carrier",
+        "Fermion Soul", "Gluon Binder", "Plasma Spirit", "Flux Weaver",
+        "Tensor Sage", "Vector Pilgrim", "Scalar Monk", "Resonance Voice"
+    ];
+
+    function getRandomName() {
+        return DISCIPLE_NAMES[Math.floor(Math.random() * DISCIPLE_NAMES.length)];
+    }
 
     // Helper to save to localStorage
     function savePosts() {
@@ -471,10 +485,14 @@ const SACRED_TEXTS = {
             postEl.dataset.id = post.id;
 
             const isUser = post.isUser;
-            const author = isUser ? 'You' : 'Anonymous Disciple';
+            // Use stored name or fallback for old posts. 
+            // If it's a user post without a name (legacy), assign one temporarily or default to "You" (but user asked for change).
+            // Let's migrate legacy posts on render if needed, or just display.
+            const authorName = post.authorName || (isUser ? "Disciple Photon" : "Anonymous Disciple");
 
             let actionButtons = '';
             if (isUser) {
+                // User can edit/delete their own posts regardless of the display name
                 actionButtons = `
                     <div class="post-actions">
                         <button class="action-btn edit-btn" title="Edit">✎</button>
@@ -489,7 +507,7 @@ const SACRED_TEXTS = {
 
             postEl.innerHTML = `
                 <div class="post-meta">
-                    <span class="post-author">${author}</span>
+                    <span class="post-author">${authorName}</span>
                     <span class="post-time">${timeString}</span>
                     ${actionButtons}
                 </div>
@@ -517,10 +535,14 @@ const SACRED_TEXTS = {
     }
 
     function addPost(text, isUser = true) {
+        // Generate a random name for this specific post
+        const name = isUser ? getRandomName() : "Anonymous Disciple";
+
         const newPost = {
             id: Date.now(),
             text: text,
             isUser: isUser,
+            authorName: name, // Persist the random name
             timestamp: new Date().toISOString()
         };
 
@@ -573,6 +595,23 @@ const SACRED_TEXTS = {
         });
     }
 
+
+    /* ── AUDIO AUTO-ATTEMPT ── */
+    // Try to play audio on first user interaction (click anywhere) to bypass policy
+    // if loop hasn't started.
+    function unlockAudio() {
+        if (audio.paused && audio.currentTime === 0) {
+            // We don't force play, but we can update UI to show it's ready/waiting
+            // Or attempt play if allowed.
+            // Better: Add a subtle hint.
+            const label = audioControl.querySelector('.audio-label');
+            if (label) label.textContent = "TAP TO LISTEN";
+        }
+        document.removeEventListener('click', unlockAudio);
+    }
+    document.addEventListener('click', unlockAudio);
+
+
     // Initial Render
     renderPosts();
 
@@ -592,11 +631,27 @@ const SACRED_TEXTS = {
                         "Truly, the resonance is strong.",
                         "I feel the displacement current."
                     ];
-                    addPost(responses[Math.floor(Math.random() * responses.length)], false);
+                    // Also give random names to community responses?
+                    // User said "each one who writes... unique name". 
+                    // So community bots should also have names? 
+                    // "Anonymous Disciple" is okay, or random name too.
+                    // Let's use random names for them too for variety.
+                    const botName = getRandomName();
+                    const newBotPost = {
+                        id: Date.now() + 1,
+                        text: responses[Math.floor(Math.random() * responses.length)],
+                        isUser: false,
+                        authorName: botName,
+                        timestamp: new Date().toISOString()
+                    };
+                    posts.push(newBotPost);
+                    savePosts();
+                    renderPosts();
                 }, 2000 + Math.random() * 3000);
             }
         }
     });
+
 })();
 
 // ── Section Verses Modal ──
