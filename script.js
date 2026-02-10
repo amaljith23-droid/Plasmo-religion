@@ -668,3 +668,70 @@ const SACRED_TEXTS = {
     });
 })();
 
+
+// ── Sacred Audio Atmosphere ──
+(function () {
+    const audio = document.getElementById('sacred-ambience');
+    const control = document.getElementById('audio-control');
+    if (!audio || !control) return;
+
+    const icon = control.querySelector('.audio-icon');
+    const label = control.querySelector('.audio-label');
+
+    // Set initial volume
+    audio.volume = 0;
+    let isPlaying = false;
+    let fadeInterval;
+
+    function toggleAudio() {
+        if (isPlaying) {
+            fadeOut();
+        } else {
+            fadeIn();
+        }
+    }
+
+    function fadeIn() {
+        // Clear any existing fade interval to prevent conflicts
+        clearInterval(fadeInterval);
+
+        audio.play().then(() => {
+            isPlaying = true;
+            control.classList.add('playing');
+            icon.textContent = "🔊";
+            label.textContent = "LISTENING";
+
+            fadeInterval = setInterval(() => {
+                if (audio.volume < 0.4) {
+                    audio.volume = Math.min(0.4, audio.volume + 0.02);
+                } else {
+                    clearInterval(fadeInterval);
+                }
+            }, 100);
+        }).catch(err => {
+            console.log("Audio play failed (interaction required):", err);
+        });
+    }
+
+    function fadeOut() {
+        // Clear locally to avoid race conditions
+        clearInterval(fadeInterval);
+
+        isPlaying = false;
+        control.classList.remove('playing');
+        icon.textContent = "🔇";
+        label.textContent = "SILENCE";
+
+        fadeInterval = setInterval(() => {
+            if (audio.volume > 0.02) {
+                audio.volume = Math.max(0, audio.volume - 0.02);
+            } else {
+                audio.volume = 0;
+                audio.pause();
+                clearInterval(fadeInterval);
+            }
+        }, 100);
+    }
+
+    control.addEventListener('click', toggleAudio);
+})();
