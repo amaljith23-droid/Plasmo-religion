@@ -1434,24 +1434,12 @@
         <div class="disciple-form">
             <input type="text" id="disciple-name" class="disciple-name-input" placeholder="Your Name (Optional)"
                 maxlength="20">
-            <div class="input-wrapper">
-                <input type="text" id="disciple-input" placeholder="Witness to the Field...">
-                <button id="post-witness">Post</button>
-            </div>
+            <textarea id="disciple-input" class="disciple-input-textarea"
+                placeholder="Write your testament to the Field..."></textarea>
+            <button id="post-witness" class="post-witness-btn">Witness</button>
         </div>
         <div class="disciple-feed" id="disciple-feed">
             <!-- Posts injected by JS -->
-            <div class="disciple-post">
-                <div class="post-meta">
-                    <span class="post-author">Brother Photon</span>
-                    <span class="post-time">2m ago</span>
-                </div>
-                <p class="post-content">The resonance is strong today.</p>
-            </div>
-        </div>
-        <div class="disciple-input-area">
-            <textarea id="disciple-input" placeholder="Write your testament..."></textarea>
-            <button id="post-witness">Witness</button>
         </div>
     </div>
 
@@ -1475,11 +1463,6 @@
         <source src="assets/ambience.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-
-    <div class="audio-control" id="audio-control" title="Invoke the Field's Voice">
-        <span class="audio-icon">🔇</span>
-        <span class="audio-label">SILENCE</span>
-    </div>
 
     <script src="script.js"></script>
 </body>

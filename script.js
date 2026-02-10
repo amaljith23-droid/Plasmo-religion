@@ -746,7 +746,7 @@ const SACRED_TEXTS = {
 // ── Sacred Audio Atmosphere ──
 (function () {
     const audio = document.getElementById('sacred-ambience');
-    const bottomControl = document.getElementById('audio-control');
+    // const bottomControl = document.getElementById('audio-control'); // Removed
     const topControl = document.getElementById('nav-prayer-btn');
 
     if (!audio) return;
@@ -765,7 +765,8 @@ const SACRED_TEXTS = {
     }
 
     function updateUI(playing) {
-        // Update Bottom Control
+        // Update Bottom Control - REMOVED
+        /*
         if (bottomControl) {
             const icon = bottomControl.querySelector('.audio-icon');
             const label = bottomControl.querySelector('.audio-label');
@@ -779,6 +780,7 @@ const SACRED_TEXTS = {
                 if (label) label.textContent = "SILENCE";
             }
         }
+        */
 
         // Update Top Control
         if (topControl) {
@@ -830,6 +832,6 @@ const SACRED_TEXTS = {
         }, 100);
     }
 
-    if (bottomControl) bottomControl.addEventListener('click', toggleAudio);
+    // if (bottomControl) bottomControl.addEventListener('click', toggleAudio); // Removed
     if (topControl) topControl.addEventListener('click', toggleAudio);
 })();

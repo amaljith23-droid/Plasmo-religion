@@ -2378,6 +2378,8 @@ body {
     font-family: var(--font-body);
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    min-height: 80px;
+    resize: vertical;
 }
 
 #disciple-input:focus {
@@ -2617,71 +2619,8 @@ body {
 }
 
 /* ── SACRED AUDIO ATMOSPHERE ── */
+/* ── SACRED AUDIO ATMOSPHERE ── */
+/* Audio control styles removed as element is removed */
 .audio-control {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: all 0.5s ease;
-    mix-blend-mode: difference;
-}
-
-.audio-control:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-.audio-icon {
-    font-size: 1.5rem;
-    filter: drop-shadow(0 0 5px rgba(201, 168, 76, 0.5));
-}
-
-.audio-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: #c9a84c;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
     display: none;
-    /* Hidden by default, shown on hover */
-}
-
-.audio-control:hover .audio-label {
-    display: block;
-    animation: fadeIn 0.3s ease-out;
-}
-
-.audio-control.playing .audio-icon {
-    animation: audioPulse 2s infinite ease-in-out;
-}
-
-@keyframes audioPulse {
-    0% {
-        filter: drop-shadow(0 0 5px rgba(201, 168, 76, 0.5));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 15px rgba(201, 168, 76, 0.8));
-    }
-
-    100% {
-        filter: drop-shadow(0 0 5px rgba(201, 168, 76, 0.5));
-    }
-}
-
-/* Response for mobile */
-@media (max-width: 768px) {
-    .audio-control {
-        bottom: 1rem;
-        right: 1rem;
-    }
-
-    .audio-icon {
-        font-size: 1.2rem;
-    }
 }
