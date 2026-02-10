@@ -589,6 +589,33 @@ body {
     text-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
 }
 
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--gold-bright);
+    text-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+}
+
+.nav-prayer-btn {
+    background: transparent;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    border-radius: 2px;
+}
+
+.nav-prayer-btn:hover {
+    background: rgba(201, 168, 76, 0.1);
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.2);
+}
+
 .section-subtitle {
     font-family: var(--font-body);
     font-style: italic;
@@ -2309,41 +2336,74 @@ body {
 .disciple-input-area {
     display: flex;
     flex-direction: column;
+}
+
+/* ── DISCIPLE INPUT AREA ── */
+.disciple-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.disciple-name-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.disciple-name-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.input-wrapper {
+    display: flex;
     gap: 0.5rem;
 }
 
 #disciple-input {
+    flex: 1;
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    color: #fff;
-    padding: 0.5rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    resize: none;
-    height: 60px;
+    border: 1px solid #333;
     border-radius: 4px;
+    padding: 0.8rem;
+    color: #eee;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 #disciple-input:focus {
     outline: none;
-    border-color: #c9a84c;
+    border-color: var(--gold);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 #post-witness {
-    background: transparent;
-    border: 1px solid #c9a84c;
-    color: #c9a84c;
-    padding: 0.4rem;
-    font-family: 'Cinzel', serif;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
     font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 0 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
+    border-radius: 4px;
 }
 
 #post-witness:hover {
-    background: rgba(201, 168, 76, 0.1);
-    box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
 }
 
 /* ── SCRIPTURE MODAL ── */

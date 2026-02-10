@@ -469,6 +469,13 @@ const SACRED_TEXTS = {
         return DISCIPLE_NAMES[Math.floor(Math.random() * DISCIPLE_NAMES.length)];
     }
 
+    // Load saved name if any
+    const savedName = localStorage.getItem('luminism_disciple_name');
+    const nameInput = document.getElementById('disciple-name');
+    if (savedName && nameInput) {
+        nameInput.value = savedName;
+    }
+
     // Helper to save to localStorage
     function savePosts() {
         localStorage.setItem('luminism_disciple_posts', JSON.stringify(posts));
@@ -485,9 +492,7 @@ const SACRED_TEXTS = {
             postEl.dataset.id = post.id;
 
             const isUser = post.isUser;
-            // Use stored name or fallback for old posts. 
-            // If it's a user post without a name (legacy), assign one temporarily or default to "You" (but user asked for change).
-            // Let's migrate legacy posts on render if needed, or just display.
+            // Use stored name or fallback for old posts.
             const authorName = post.authorName || (isUser ? "Disciple Photon" : "Anonymous Disciple");
 
             let actionButtons = '';
@@ -535,14 +540,28 @@ const SACRED_TEXTS = {
     }
 
     function addPost(text, isUser = true) {
-        // Generate a random name for this specific post
-        const name = isUser ? getRandomName() : "Anonymous Disciple";
+        let name;
+
+        if (isUser) {
+            // Check if user provided a name
+            const nameVal = nameInput ? nameInput.value.trim() : "";
+            if (nameVal) {
+                name = nameVal;
+                // Save name for future visits
+                localStorage.setItem('luminism_disciple_name', nameVal);
+            } else {
+                // Fallback to random name if input empty
+                name = getRandomName();
+            }
+        } else {
+            name = "Anonymous Disciple";
+        }
 
         const newPost = {
             id: Date.now(),
             text: text,
             isUser: isUser,
-            authorName: name, // Persist the random name
+            authorName: name,
             timestamp: new Date().toISOString()
         };
 
@@ -632,8 +651,8 @@ const SACRED_TEXTS = {
                         "I feel the displacement current."
                     ];
                     // Also give random names to community responses?
-                    // User said "each one who writes... unique name". 
-                    // So community bots should also have names? 
+                    // User said "each one who writes... unique name".
+                    // So community bots should also have names?
                     // "Anonymous Disciple" is okay, or random name too.
                     // Let's use random names for them too for variety.
                     const botName = getRandomName();
@@ -727,11 +746,10 @@ const SACRED_TEXTS = {
 // ── Sacred Audio Atmosphere ──
 (function () {
     const audio = document.getElementById('sacred-ambience');
-    const control = document.getElementById('audio-control');
-    if (!audio || !control) return;
+    const bottomControl = document.getElementById('audio-control');
+    const topControl = document.getElementById('nav-prayer-btn');
 
-    const icon = control.querySelector('.audio-icon');
-    const label = control.querySelector('.audio-label');
+    if (!audio) return;
 
     // Set initial volume
     audio.volume = 0;
@@ -746,15 +764,41 @@ const SACRED_TEXTS = {
         }
     }
 
+    function updateUI(playing) {
+        // Update Bottom Control
+        if (bottomControl) {
+            const icon = bottomControl.querySelector('.audio-icon');
+            const label = bottomControl.querySelector('.audio-label');
+            if (playing) {
+                bottomControl.classList.add('playing');
+                if (icon) icon.textContent = "🔊";
+                if (label) label.textContent = "LISTENING";
+            } else {
+                bottomControl.classList.remove('playing');
+                if (icon) icon.textContent = "🔇";
+                if (label) label.textContent = "SILENCE";
+            }
+        }
+
+        // Update Top Control
+        if (topControl) {
+            if (playing) {
+                topControl.innerHTML = "Prayer 🔊";
+                topControl.classList.add('active');
+            } else {
+                topControl.innerHTML = "Prayer 🔇";
+                topControl.classList.remove('active');
+            }
+        }
+    }
+
     function fadeIn() {
         // Clear any existing fade interval to prevent conflicts
         clearInterval(fadeInterval);
 
         audio.play().then(() => {
             isPlaying = true;
-            control.classList.add('playing');
-            icon.textContent = "🔊";
-            label.textContent = "LISTENING";
+            updateUI(true);
 
             fadeInterval = setInterval(() => {
                 if (audio.volume < 0.4) {
@@ -773,9 +817,7 @@ const SACRED_TEXTS = {
         clearInterval(fadeInterval);
 
         isPlaying = false;
-        control.classList.remove('playing');
-        icon.textContent = "🔇";
-        label.textContent = "SILENCE";
+        updateUI(false);
 
         fadeInterval = setInterval(() => {
             if (audio.volume > 0.02) {
@@ -788,5 +830,6 @@ const SACRED_TEXTS = {
         }, 100);
     }
 
-    control.addEventListener('click', toggleAudio);
+    if (bottomControl) bottomControl.addEventListener('click', toggleAudio);
+    if (topControl) topControl.addEventListener('click', toggleAudio);
 })();

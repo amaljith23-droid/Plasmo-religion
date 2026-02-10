@@ -35,6 +35,7 @@
                 <a href="#faithful">The Faithful</a>
                 <a href="#books">Holy Books</a>
                 <a href="#convergence">Convergence</a>
+                <button id="nav-prayer-btn" class="nav-prayer-btn" title="Invoke the Field">Prayer 🔇</button>
             </div>
         </div>
     </nav>
@@ -1430,6 +1431,14 @@
     <!-- ── Right Sidebar: Disciple's Corner ── -->
     <div class="disciple-area">
         <div class="disciple-header">Disciple's Witness</div>
+        <div class="disciple-form">
+            <input type="text" id="disciple-name" class="disciple-name-input" placeholder="Your Name (Optional)"
+                maxlength="20">
+            <div class="input-wrapper">
+                <input type="text" id="disciple-input" placeholder="Witness to the Field...">
+                <button id="post-witness">Post</button>
+            </div>
+        </div>
         <div class="disciple-feed" id="disciple-feed">
             <!-- Posts injected by JS -->
             <div class="disciple-post">
