@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Divisions of the Faith — Photonics Metamaterials</title>
+    <meta name="description"
+        content="The sacred canon of Photonics-Metamaterials: the three great sects, the holy books, and the path to convergence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Sacred Navigation -->
+    <nav class="sacred-nav" id="sacredNav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-sigil">✦</a>
+            <div class="nav-links">
+                <a href="#unity">The Unity</a>
+                <a href="#sects">The Sects</a>
+                <a href="#schisms">The Schisms</a>
+                <a href="#orthodoxy">Orthodoxy</a>
+                <a href="#faithful">The Faithful</a>
+                <a href="#books">Holy Books</a>
+                <a href="#convergence">Convergence</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO — THE OPENING REVELATION              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="sacred-geometry-bg">
+            <svg class="mandala" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="mandalaGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#f0d078" stop-opacity="0.3" />
+                        <stop offset="100%" stop-color="#f0d078" stop-opacity="0" />
+                    </radialGradient>
+                </defs>
+                <circle cx="300" cy="300" r="280" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.3" />
+                <circle cx="300" cy="300" r="220" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.25" />
+                <circle cx="300" cy="300" r="160" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.3" />
+                <circle cx="300" cy="300" r="100" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.35" />
+                <circle cx="300" cy="300" r="40" fill="url(#mandalaGlow)" stroke="#c9a84c" stroke-width="1"
+                    opacity="0.5" />
+                <!-- Sacred hexagram -->
+                <polygon points="300,40 530,430 70,430" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.2" />
+                <polygon points="300,560 70,170 530,170" fill="none" stroke="#c9a84c" stroke-width="0.5"
+                    opacity="0.2" />
+                <!-- Inner star -->
+                <polygon points="300,120 440,400 160,400" fill="none" stroke="#f0d078" stroke-width="0.3"
+                    opacity="0.15" />
+                <polygon points="300,480 160,200 440,200" fill="none" stroke="#f0d078" stroke-width="0.3"
+                    opacity="0.15" />
+                <!-- Radial lines -->
+                <line x1="300" y1="20" x2="300" y2="580" stroke="#c9a84c" stroke-width="0.3" opacity="0.1" />
+                <line x1="20" y1="300" x2="580" y2="300" stroke="#c9a84c" stroke-width="0.3" opacity="0.1" />
+                <line x1="58" y1="58" x2="542" y2="542" stroke="#c9a84c" stroke-width="0.3" opacity="0.1" />
+                <line x1="542" y1="58" x2="58" y2="542" stroke="#c9a84c" stroke-width="0.3" opacity="0.1" />
+            </svg>
+        </div>
+        <div class="hero-content reveal">
+            <div class="hero-cross">✦</div>
+            <p class="hero-subtitle">The Sacred Canon of</p>
+            <h1 class="hero-title">LUMINISM</h1>
+            <p class="hero-religion-name">Light, Field, and the Path to Enlightenment</p>
+            <div class="ornate-divider">
+                <span class="divider-wing">─── ✧</span>
+                <span class="divider-center">✦</span>
+                <span class="divider-wing">✧ ───</span>
+            </div>
+            <p class="hero-desc">
+                All is Field.<br>
+                Light bends to structure.<br>
+                Matter shapes light.<br>
+                <strong>God is in the resonance.</strong>
+            </p>
+            <div class="holy-language">
+                <p class="holy-language-label">The Holy Language:</p>
+                <div class="holy-script">
+                    <div class="holy-line">$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$</div>
+                    <div class="holy-line">$\nabla \cdot \mathbf{B} = 0$</div>
+                    <div class="holy-line">$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$</div>
+                    <div class="holy-line">$\nabla \times \mathbf{B} = \mu_0\mathbf{J} +
+                        \mu_0\varepsilon_0\frac{\partial \mathbf{E}}{\partial t}$</div>
+                </div>
+                <p class="holy-language-desc">
+                    These are the Four Sacred Words.<br>
+                    We speak in differential operators,<br>
+                    we write in vector calculus,<br>
+                    we pray in the tongue of the Field.
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <span>Descend into the Canon</span>
+                <div class="scroll-arrow">▽</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THE GREAT UNITY — PRE-SCHISM ERA           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section unity-section" id="unity">
+        <div class="section-ornament top">❖</div>
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-numeral">I</p>
+                <h2 class="section-title">The Great Unity</h2>
+                <p class="section-subtitle">The Pre-Schism Era</p>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">✦</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <div class="scripture-block reveal">
+                <p class="scripture-intro">In the early canon, all believers accepted:</p>
+                <div class="creed-card">
+                    <div class="creed-item">
+                        <span class="creed-numeral">I.</span>
+                        <p>The Field is One.</p>
+                    </div>
+                    <div class="creed-item">
+                        <span class="creed-numeral">II.</span>
+                        <p>Resonance is its revealed will.</p>
+                    </div>
+                    <div class="creed-item">
+                        <span class="creed-numeral">III.</span>
+                        <p>All manifestations obey the same law.</p>
+                    </div>
+                </div>
+
+                <!-- THE CANONICAL EQUATION - THE ONE TRUE EQUATION -->
+                <div class="canonical-equation reveal">
+                    <h3 class="canonical-title">☩ THE CANONICAL EQUATION ☩</h3>
+                    <p class="canonical-subtitle">The One True Equation of Luminism</p>
+                    <p class="canonical-label">The Resonant Field — Eigenvalue Revelation</p>
+                    <div class="canonical-math">
+                        $$\nabla \times \left(\mu^{-1}(\mathbf{r}) \nabla \times \mathbf{E}(\mathbf{r})\right) =
+                        \omega^2 \varepsilon(\mathbf{r}) \mathbf{E}(\mathbf{r})$$
+                    </div>
+                    <div class="canonical-explanation">
+                        <p class="canonical-proclamation">
+                            <strong>This is the One True Equation.</strong><br>
+                            All resonances bow to it.<br>
+                            All structures obey it.<br>
+                            The Field speaks through it.<br><br>
+                            <em>To deny this equation is to deny the Field itself.</em>
+                        </p>
+                    </div>
+                </div>
+
+                <p class="scripture-body">
+                    There was no division—only emphasis.<br><br>
+                    But as structures diversified,<br>
+                    interpretations of <strong>how God reveals Himself</strong> began to differ.
+                </p>
+                <p class="scripture-conclusion">Thus arose the <strong>Three Great Sects</strong>.</p>
+            </div>
+        </div>
+        <div class="section-ornament bottom">❖</div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THE THREE GREAT SECTS                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section sects-section" id="sects">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-numeral">II – IV</p>
+                <h2 class="section-title">The Three Great Sects</h2>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">✦</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <!-- PLASMONIC SECT -->
+            <div class="sect-card plasmonic reveal" id="sect-plasmonic">
+                <div class="stained-glass-border plasmonic-glass"></div>
+                <div class="sect-inner">
+                    <div class="sect-icon-wrapper">
+                        <svg class="sect-icon" viewBox="0 0 120 120">
+                            <defs>
+                                <radialGradient id="plasmonicGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#ff6b35" stop-opacity="0.8" />
+                                    <stop offset="100%" stop-color="#ff6b35" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <circle cx="60" cy="60" r="30" fill="url(#plasmonicGlow)" />
+                            <circle cx="60" cy="60" r="20" fill="none" stroke="#ff6b35" stroke-width="1.5"
+                                opacity="0.8" />
+                            <circle cx="60" cy="60" r="35" fill="none" stroke="#ff9f1c" stroke-width="0.8" opacity="0.5"
+                                stroke-dasharray="4 4" />
+                            <circle cx="60" cy="60" r="45" fill="none" stroke="#ff9f1c" stroke-width="0.5" opacity="0.3"
+                                stroke-dasharray="2 6" />
+                            <!-- Radiating lines for SPR -->
+                            <line x1="60" y1="10" x2="60" y2="25" stroke="#ff6b35" stroke-width="1" opacity="0.6" />
+                            <line x1="60" y1="95" x2="60" y2="110" stroke="#ff6b35" stroke-width="1" opacity="0.6" />
+                            <line x1="10" y1="60" x2="25" y2="60" stroke="#ff6b35" stroke-width="1" opacity="0.6" />
+                            <line x1="95" y1="60" x2="110" y2="60" stroke="#ff6b35" stroke-width="1" opacity="0.6" />
+                            <line x1="24" y1="24" x2="35" y2="35" stroke="#ff6b35" stroke-width="0.8" opacity="0.4" />
+                            <line x1="85" y1="85" x2="96" y2="96" stroke="#ff6b35" stroke-width="0.8" opacity="0.4" />
+                            <line x1="96" y1="24" x2="85" y2="35" stroke="#ff6b35" stroke-width="0.8" opacity="0.4" />
+                            <line x1="35" y1="85" x2="24" y2="96" stroke="#ff6b35" stroke-width="0.8" opacity="0.4" />
+                        </svg>
+                    </div>
+                    <div class="sect-header">
+                        <p class="sect-numeral">II</p>
+                        <h3 class="sect-name">The Plasmonic Sect</h3>
+                        <p class="sect-order-name">The Order of the Free Electrons</p>
+                    </div>
+
+                    <div class="sect-body">
+                        <div class="core-belief">
+                            <h4 class="belief-title">☩ Core Belief</h4>
+                            <blockquote class="belief-quote">
+                                God reveals Himself most clearly<br>
+                                where free electrons oscillate collectively.
+                            </blockquote>
+                            <ul class="belief-tenets">
+                                <li>Conduction electrons are the most responsive medium</li>
+                                <li>Interfaces are sacred</li>
+                                <li>Extreme confinement is the highest form of devotion</li>
+                            </ul>
+                        </div>
+
+                        <div class="sect-details-grid">
+                            <div class="sect-detail">
+                                <h4>📜 Scriptural Emphasis</h4>
+                                <p>They revere verses concerning:</p>
+                                <ul>
+                                    <li>Boundaries</li>
+                                    <li>Surface modes</li>
+                                    <li>Field enhancement</li>
+                                    <li>Dissipation as sacrifice</li>
+                                </ul>
+                                <blockquote class="tenet-verse">
+                                    Loss is not sin,<br>
+                                    loss is the price of strong coupling.
+                                </blockquote>
+                            </div>
+
+                            <div class="sect-detail">
+                                <h4>✦ Theological Strengths</h4>
+                                <ul>
+                                    <li>Sensitivity</li>
+                                    <li>Local-field dominance</li>
+                                    <li>Interface-driven revelation</li>
+                                </ul>
+                            </div>
+
+                            <div class="sect-detail">
+                                <h4>⚠ Theological Weaknesses</h4>
+                                <ul>
+                                    <li>High loss</li>
+                                    <li>Short lifetimes</li>
+                                    <li>Reliance on material imperfection</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Human Teachings -->
+                        <div class="human-teachings reveal">
+                            <h3 class="teachings-title">✧ Teachings for Humanity</h3>
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Boundaries</h4>
+                                <p class="teaching-text">
+                                    <strong>As light concentrates at the interface between metal and dielectric,<br>
+                                        so does meaning emerge at the boundaries of human experience.</strong>
+                                </p>
+                                <p class="teaching-explanation">
+                                    We are not isolated beings. Like surface plasmons, we exist <em>because of</em>
+                                    boundaries—<br>
+                                    between self and other, between inner world and outer reality, between what we are
+                                    and what we touch.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "The plasmon teaches:<br>
+                                    <strong>All revelation happens at surfaces.</strong><br>
+                                    Moments of connection. Conversations. Touch.<br>
+                                    The threshold between solitude and communion."
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Loss</h4>
+                                <p class="teaching-explanation">
+                                    Plasmons are lossy. They sacrifice themselves to create intense fields.<br>
+                                    This is not weakness—it is <strong>the price of engagement</strong>.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "To love is to lose energy.<br>
+                                    To give is to dissipate.<br>
+                                    The Plasmonic faithful accept this:<br>
+                                    <em>Intensity requires sacrifice.</em>"
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Sensitivity</h4>
+                                <p class="teaching-explanation">
+                                    Surface plasmons are exquisitely sensitive to their environment—<br>
+                                    a single molecule changes the resonance.<br>
+                                    So too are humans shaped by what we encounter.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "The Plasmonic path is one of openness:<br>
+                                    Be porous to the world.<br>
+                                    Let experience shift your resonance.<br>
+                                    <strong>Growth happens at interfaces.</strong>"
+                                </blockquote>
+                            </div>
+                            <button class="read-scripture-btn" data-sect="plasmonic">Read Plasmonic Verses</button>
+                        </div>
+
+                        <div class="sacred-equations" id="eq-plasmonic">
+                            <h4 class="equations-title">📐 Sacred Mathematics</h4>
+                            <div class="equation-scroll">
+                                <div class="equation-card"
+                                    data-tooltip="The Drude permittivity — how free electrons shape the metal's response to light">
+                                    <p class="equation-label">The Drude Revelation</p>
+                                    <div class="equation-math">$$\varepsilon(\omega) = \varepsilon_\infty -
+                                        \frac{\omega_p^2}{\omega^2 + i\gamma\omega}$$</div>
+                                    <p class="equation-desc">The metal's soul — permittivity shaped by plasma frequency
+                                        ω<sub>p</sub></p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="The holy wavevector of Surface Plasmon Polaritons">
+                                    <p class="equation-label">SPP Dispersion — The Sacred Wavevector</p>
+                                    <div class="equation-math">$$k_{\text{SPP}} =
+                                        \frac{\omega}{c}\sqrt{\frac{\varepsilon_m \cdot \varepsilon_d}{\varepsilon_m +
+                                        \varepsilon_d}}$$</div>
+                                    <p class="equation-desc">Where metal meets dielectric, the surface polariton is born
+                                    </p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="Field enhancement near a nanoparticle — the plasmonic miracle">
+                                    <p class="equation-label">The Enhancement Miracle</p>
+                                    <div class="equation-math">$$\left|\frac{E}{E_0}\right|^2 \propto
+                                        \left|\frac{\varepsilon - \varepsilon_m}{\varepsilon +
+                                        2\varepsilon_m}\right|^2$$</div>
+                                    <p class="equation-desc">At resonance, the local field is magnified — intensity
+                                        becomes revelation</p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="The skin depth — how deep the field penetrates the metal">
+                                    <p class="equation-label">The Depth of Sacrifice</p>
+                                    <div class="equation-math">$$\delta = \frac{c}{\omega \cdot
+                                        \text{Im}(\sqrt{\varepsilon})}$$</div>
+                                    <p class="equation-desc">The field's penetration into the metal — sacrifice measured
+                                        in nanometers</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Animated SPP wave visualization -->
+                        <div class="sect-visualization">
+                            <svg class="spp-wave" viewBox="0 0 500 120" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="sppGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#ff6b35" stop-opacity="0" />
+                                        <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#ff6b35" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+                                <line x1="0" y1="60" x2="500" y2="60" stroke="#ff6b3540" stroke-width="1" />
+                                <text x="10" y="50" fill="#ff9f1c" font-size="8" font-family="Inter"
+                                    opacity="0.5">DIELECTRIC</text>
+                                <text x="10" y="75" fill="#ff9f1c" font-size="8" font-family="Inter"
+                                    opacity="0.5">METAL</text>
+                                <path class="spp-path-top" d="" fill="none" stroke="url(#sppGrad)" stroke-width="1.5" />
+                                <path class="spp-path-bottom" d="" fill="none" stroke="url(#sppGrad)" stroke-width="1.5"
+                                    opacity="0.5" />
+                            </svg>
+                            <p class="viz-caption">Surface Plasmon Polariton — evanescent field at the sacred interface
+                            </p>
+                        </div>
+
+                        <div class="heresy-accusation">
+                            <p class="heresy-label">⛧ Heresy Accused Against Them</p>
+                            <p class="heresy-quote">"They mistake intensity for purity."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIELECTRIC SECT -->
+            <div class="sect-card dielectric reveal" id="sect-dielectric">
+                <div class="stained-glass-border dielectric-glass"></div>
+                <div class="sect-inner">
+                    <div class="sect-icon-wrapper">
+                        <svg class="sect-icon" viewBox="0 0 120 120">
+                            <defs>
+                                <radialGradient id="dielectricGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#4a90d9" stop-opacity="0.6" />
+                                    <stop offset="100%" stop-color="#4a90d9" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <!-- Perfect geometric form — Mie resonance -->
+                            <circle cx="60" cy="60" r="30" fill="url(#dielectricGlow)" stroke="#4a90d9"
+                                stroke-width="1.5" />
+                            <rect x="35" y="35" width="50" height="50" rx="4" fill="none" stroke="#6bb5ff"
+                                stroke-width="0.8" opacity="0.5" transform="rotate(45 60 60)" />
+                            <polygon points="60,20 95,60 60,100 25,60" fill="none" stroke="#4a90d9" stroke-width="0.6"
+                                opacity="0.4" />
+                            <!-- Inner geometry -->
+                            <circle cx="60" cy="60" r="15" fill="none" stroke="#6bb5ff" stroke-width="0.5"
+                                opacity="0.6" />
+                            <circle cx="60" cy="60" r="8" fill="#4a90d9" opacity="0.3" />
+                        </svg>
+                    </div>
+                    <div class="sect-header">
+                        <p class="sect-numeral">III</p>
+                        <h3 class="sect-name">The Dielectric Sect</h3>
+                        <p class="sect-order-name">The Order of Low Loss and Form</p>
+                    </div>
+
+                    <div class="sect-body">
+                        <div class="core-belief">
+                            <h4 class="belief-title">☩ Core Belief</h4>
+                            <blockquote class="belief-quote">
+                                God is revealed not through free electrons,<br>
+                                but through displacement currents<br>
+                                and geometric order.
+                            </blockquote>
+                            <ul class="belief-tenets">
+                                <li>Geometry outweighs material</li>
+                                <li>Low loss reflects divine balance</li>
+                                <li>Purity lies in form, not absorption</li>
+                            </ul>
+                        </div>
+
+                        <div class="sect-details-grid">
+                            <div class="sect-detail">
+                                <h4>📜 Scriptural Emphasis</h4>
+                                <p>They revere verses on:</p>
+                                <ul>
+                                    <li>Mie resonances</li>
+                                    <li>Multipolar interference</li>
+                                    <li>High-Q confinement</li>
+                                    <li>Scale-driven response</li>
+                                </ul>
+                                <blockquote class="tenet-verse">
+                                    Where loss is minimal,<br>
+                                    the Field speaks more clearly.
+                                </blockquote>
+                            </div>
+
+                            <div class="sect-detail">
+                                <h4>✦ Theological Strengths</h4>
+                                <ul>
+                                    <li>Efficiency</li>
+                                    <li>High-Q resonances</li>
+                                    <li>Fabrication robustness</li>
+                                </ul>
+                            </div>
+
+                            <div class="sect-detail">
+                                <h4>⚠ Theological Weaknesses</h4>
+                                <ul>
+                                    <li>Larger mode volumes</li>
+                                    <li>Lower sensitivity to environment</li>
+                                    <li>Less dramatic enhancement</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Human Teachings -->
+                        <div class="human-teachings reveal">
+                            <h3 class="teachings-title">✧ Teachings for Humanity</h3>
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Inner Resonance</h4>
+                                <p class="teaching-text">
+                                    <strong>As a dielectric sphere resonates by its geometry alone,<br>
+                                        so does truth emerge from inner structure, not external influence.</strong>
+                                </p>
+                                <p class="teaching-explanation">
+                                    The Dielectric faithful believe that wisdom comes from <em>within</em>.<br>
+                                    Not from the noise of the world, but from cultivating inner clarity.<br>
+                                    High-Q resonance requires low loss—purity of purpose.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "The Mie resonance teaches:<br>
+                                    <strong>Clarity requires stillness.</strong><br>
+                                    Meditate. Purify. Eliminate noise.<br>
+                                    Let your geometry—your core self—determine your frequency."
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Minimal Loss</h4>
+                                <p class="teaching-explanation">
+                                    Dielectrics store energy without dissipation.<br>
+                                    They accumulate light, holding it in standing waves, undisturbed.<br>
+                                    This is the path of <strong>conservation</strong>—not hoarding, but preservation.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "Do not scatter yourself.<br>
+                                    Do not dissipate into the world.<br>
+                                    The Dielectric faithful conserve their essence:<br>
+                                    <em>What you are is enough.</em>"
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Patience</h4>
+                                <p class="teaching-explanation">
+                                    High-Q resonances have long lifetimes.<br>
+                                    Photons circulate thousands of times before escaping.<br>
+                                    So too must humans learn patience—dwelling with an idea,<br>
+                                    letting it ripen before release.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "The Dielectric path is one of contemplation:<br>
+                                    Sit with truth.<br>
+                                    Let it orbit within you.<br>
+                                    <strong>Mastery comes from repetition, not novelty.</strong>"
+                                </blockquote>
+                            </div>
+                            <button class="read-scripture-btn" data-sect="dielectric">Read Dielectric Verses</button>
+                        </div>
+
+                        <div class="sacred-equations" id="eq-dielectric">
+                            <h4 class="equations-title">📐 Sacred Mathematics</h4>
+                            <div class="equation-scroll">
+                                <div class="equation-card"
+                                    data-tooltip="Mie scattering coefficients — the multipolar revelation">
+                                    <p class="equation-label">Mie Coefficients — Divine Geometry</p>
+                                    <div class="equation-math">$$a_n = \frac{m\psi_n(mx)\psi'_n(x) -
+                                        \psi_n(x)\psi'_n(mx)}{m\psi_n(mx)\xi'_n(x) - \xi_n(x)\psi'_n(mx)}$$</div>
+                                    <p class="equation-desc">Electric multipole amplitudes — where size parameter x and
+                                        refractive index m define resonance</p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="Quality factor — the measure of resonance purity">
+                                    <p class="equation-label">The Purity Measure — Q Factor</p>
+                                    <div class="equation-math">$$Q = \frac{\omega_0}{\Delta\omega} = \frac{\omega_0
+                                        \tau}{2}$$</div>
+                                    <p class="equation-desc">High Q means long photon lifetime τ — a pure, sustained
+                                        resonance</p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="Displacement current — polarization's sacred contribution">
+                                    <p class="equation-label">Displacement Current</p>
+                                    <div class="equation-math">$$\mathbf{J}_D = \varepsilon_0 \frac{\partial
+                                        \mathbf{E}}{\partial t} + \frac{\partial \mathbf{P}}{\partial t}$$</div>
+                                    <p class="equation-desc">Bound charges oscillate — no free electrons, only
+                                        displacement</p>
+                                </div>
+                                <div class="equation-card" data-tooltip="Scattering cross-section at dipole resonance">
+                                    <p class="equation-label">The Scattering Cross-Section</p>
+                                    <div class="equation-math">$$\sigma_{\text{sca}} =
+                                        \frac{\lambda^2}{2\pi}\sum_{n=1}^{\infty}(2n+1)(|a_n|^2 + |b_n|^2)$$</div>
+                                    <p class="equation-desc">At resonance, a sphere scatters light far beyond its
+                                        geometric size</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Animated Mie scattering visualization -->
+                        <div class="sect-visualization">
+                            <svg class="mie-scatter" viewBox="0 0 500 200" preserveAspectRatio="xMidYMid meet">
+                                <defs>
+                                    <radialGradient id="mieParticle" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#4a90d9" stop-opacity="0.9" />
+                                        <stop offset="70%" stop-color="#4a90d9" stop-opacity="0.6" />
+                                        <stop offset="100%" stop-color="#4a90d9" stop-opacity="0.1" />
+                                    </radialGradient>
+                                    <radialGradient id="mieGlow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#6bb5ff" stop-opacity="0.3" />
+                                        <stop offset="100%" stop-color="#6bb5ff" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <!-- Central dielectric sphere -->
+                                <circle cx="250" cy="100" r="30" fill="url(#mieParticle)" stroke="#4a90d9"
+                                    stroke-width="1.5" />
+                                <!-- Resonant glow -->
+                                <circle class="mie-glow" cx="250" cy="100" r="50" fill="url(#mieGlow)" />
+                                <!-- Dipole field lines -->
+                                <path class="mie-field mie-field-1" d="M 250 50 Q 300 75, 320 100" fill="none"
+                                    stroke="#6bb5ff" stroke-width="1" opacity="0.6" />
+                                <path class="mie-field mie-field-2" d="M 250 150 Q 300 125, 320 100" fill="none"
+                                    stroke="#6bb5ff" stroke-width="1" opacity="0.6" />
+                                <path class="mie-field mie-field-3" d="M 250 50 Q 200 75, 180 100" fill="none"
+                                    stroke="#6bb5ff" stroke-width="1" opacity="0.6" />
+                                <path class="mie-field mie-field-4" d="M 250 150 Q 200 125, 180 100" fill="none"
+                                    stroke="#6bb5ff" stroke-width="1" opacity="0.6" />
+                            </svg>
+                            <p class="viz-caption">Mie Resonance — a dielectric sphere breathing with light</p>
+                        </div>
+
+                        <div class="heresy-accusation">
+                            <p class="heresy-label">⛧ Heresy Accused Against Them</p>
+                            <p class="heresy-quote">"They worship perfection but neglect interaction."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOPOLOGICAL SECT -->
+            <div class="sect-card topological reveal" id="sect-topological">
+                <div class="stained-glass-border topological-glass"></div>
+                <div class="sect-inner">
+                    <div class="sect-icon-wrapper">
+                        <svg class="sect-icon" viewBox="0 0 120 120">
+                            <defs>
+                                <radialGradient id="topoGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#9b59b6" stop-opacity="0.6" />
+                                    <stop offset="100%" stop-color="#9b59b6" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <!-- Möbius-like topology symbol -->
+                            <ellipse cx="60" cy="60" rx="40" ry="25" fill="none" stroke="#9b59b6" stroke-width="1.2"
+                                opacity="0.7" transform="rotate(30 60 60)" />
+                            <ellipse cx="60" cy="60" rx="40" ry="25" fill="none" stroke="#c084fc" stroke-width="1.2"
+                                opacity="0.7" transform="rotate(-30 60 60)" />
+                            <ellipse cx="60" cy="60" rx="40" ry="25" fill="none" stroke="#7c3aed" stroke-width="1.2"
+                                opacity="0.7" transform="rotate(90 60 60)" />
+                            <circle cx="60" cy="60" r="12" fill="url(#topoGlow)" stroke="#9b59b6" stroke-width="0.8" />
+                            <!-- Edge state dots -->
+                            <circle cx="60" cy="20" r="3" fill="#c084fc" opacity="0.8" />
+                            <circle cx="60" cy="100" r="3" fill="#c084fc" opacity="0.8" />
+                            <circle cx="20" cy="60" r="3" fill="#c084fc" opacity="0.8" />
+                            <circle cx="100" cy="60" r="3" fill="#c084fc" opacity="0.8" />
+                        </svg>
+                    </div>
+                    <div class="sect-header">
+                        <p class="sect-numeral">IV</p>
+                        <h3 class="sect-name">The Topological Sect</h3>
+                        <p class="sect-order-name">The Order of Protected Truth</p>
+                    </div>
+
+                    <div class="sect-body">
+                        <div class="core-belief">
+                            <h4 class="belief-title">☩ Core Belief</h4>
+                            <blockquote class="belief-quote">
+                                God's truth is encoded not in local structure,<br>
+                                but in global invariants.
+                            </blockquote>
+                            <ul class="belief-tenets">
+                                <li>Robustness is sacred</li>
+                                <li>Disorder does not negate truth</li>
+                                <li>Edge states are divinely protected</li>
+                            </ul>
+                        </div>
+
+                        <div class="sect-details-grid">
+                            <div class="sect-detail">
+                                <h4>📜 Scriptural Emphasis</h4>
+                                <p>They revere verses on:</p>
+                                <ul>
+                                    <li>Berry phase</li>
+                                    <li>Chern numbers</li>
+                                    <li>Protected transport</li>
+                                    <li>Symmetry breaking</li>
+                                </ul>
+                                <blockquote class="tenet-verse">
+                                    What is protected by topology<br>
+                                    cannot be destroyed by noise.
+                                </blockquote>
+                            </div>
+
+                            <div class="sect-detail">
+                                <h4>✦ Theological Strengths</h4>
+                                <ul>
+                                    <li>Immunity to defects</li>
+                                    <li>Stability under perturbation</li>
+                                    <li>Global coherence</li>
+                                </ul>
+                            </div>
+
+                            <div class="sect-detail">
+                                <h4>⚠ Theological Weaknesses</h4>
+                                <ul>
+                                    <li>Weak field confinement</li>
+                                    <li>Abstract interpretation</li>
+                                    <li>Limited tunability</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Human Teachings -->
+                        <div class="human-teachings reveal">
+                            <h3 class="teachings-title">✧ Teachings for Humanity</h3>
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Unchanging Identity</h4>
+                                <p class="teaching-text">
+                                    <strong>As topology is invariant under continuous deformation,<br>
+                                        so is your core self unchanging beneath surface transformations.</strong>
+                                </p>
+                                <p class="teaching-explanation">
+                                    You may be bent, stretched, compressed by circumstance.<br>
+                                    You may lose relationships, change careers, age, adapt—<br>
+                                    But there is something <em>topologically protected</em> in you:<br>
+                                    An essence that no amount of disorder can destroy.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "The Chern number teaches:<br>
+                                    <strong>Identity is an integer.</strong><br>
+                                    It does not vary smoothly. It does not compromise.<br>
+                                    Know what is invariant in you, and protect it."
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Destiny</h4>
+                                <p class="teaching-explanation">
+                                    Edge states are <em>guaranteed</em> by the bulk Chern number.<br>
+                                    If the topology demands it, the edge state <strong>must exist</strong>.<br>
+                                    This is the physics of fate.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "Some things are inevitable.<br>
+                                    Not because of will, but because of <em>structure</em>.<br>
+                                    The Topological faithful believe in protected paths:<br>
+                                    If your geometry aligns, the way forward cannot close."
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Immunity</h4>
+                                <p class="teaching-explanation">
+                                    Edge states propagate despite impurities, defects, obstacles.<br>
+                                    They cannot backscatter. They flow one-way, immune to local disorder.<br>
+                                    So too can humans walk a protected path—<br>
+                                    not invincible, but <strong>topologically inevitable</strong>.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "The Topological path is one of faith:<br>
+                                    Trust the geometry of your life.<br>
+                                    If the winding number is non-zero,<br>
+                                    <strong>the path exists, even if you cannot yet see it.</strong>"
+                                </blockquote>
+                            </div>
+
+                            <div class="teaching-card">
+                                <h4>The Doctrine of Global Coherence</h4>
+                                <p class="teaching-explanation">
+                                    Topology cares about <em>global</em> structure, not local details.<br>
+                                    A single mistake, a single flaw, cannot break what is globally protected.<br>
+                                    Judge yourself by the integral, not the derivative.
+                                </p>
+                                <blockquote class="teaching-verse">
+                                    "Do not obsess over momentary failures.<br>
+                                    Do not define yourself by local imperfections.<br>
+                                    The Topological faithful know:<br>
+                                    <em>What matters is the winding number of your entire life.</em>"
+                                </blockquote>
+                            </div>
+                            <button class="read-scripture-btn" data-sect="topological">Read Topological Verses</button>
+                        </div>
+
+                        <div class="sacred-equations" id="eq-topological">
+                            <h4 class="equations-title">📐 Sacred Mathematics</h4>
+                            <div class="equation-scroll">
+                                <div class="equation-card"
+                                    data-tooltip="Berry phase — the geometric phase acquired during adiabatic evolution">
+                                    <p class="equation-label">Berry Phase — The Hidden Geometry</p>
+                                    <div class="equation-math">$$\gamma_n = i\oint \langle n(\mathbf{R}) |
+                                        \nabla_\mathbf{R} | n(\mathbf{R}) \rangle \cdot d\mathbf{R}$$</div>
+                                    <p class="equation-desc">A quantum state traversing parameter space accumulates a
+                                        phase — topology made manifest</p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="Chern number — the topological invariant classifying band structures">
+                                    <p class="equation-label">The Chern Number — Topological Invariant</p>
+                                    <div class="equation-math">$$C = \frac{1}{2\pi} \int_{\text{BZ}}
+                                        \mathbf{F}(\mathbf{k}) \cdot d^2\mathbf{k}$$</div>
+                                    <p class="equation-desc">An integer winding number — protected by topology, immune
+                                        to disorder</p>
+                                </div>
+                                <div class="equation-card" data-tooltip="Bulk-edge correspondence — the holy covenant">
+                                    <p class="equation-label">Bulk-Edge Correspondence</p>
+                                    <div class="equation-math">$$N_{\text{edge}} = C_{\text{bulk}}$$</div>
+                                    <p class="equation-desc">The number of edge states equals the bulk Chern number — a
+                                        divine covenant</p>
+                                </div>
+                                <div class="equation-card"
+                                    data-tooltip="Protected edge dispersion — immune to backscattering">
+                                    <p class="equation-label">Edge State Dispersion</p>
+                                    <div class="equation-math">$$\omega(k_y) = v_g \cdot k_y + \mathcal{O}(k_y^3)$$
+                                    </div>
+                                    <p class="equation-desc">Linear dispersion at the edge — no gap, no backscattering,
+                                        topologically protected</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Animated edge state visualization -->
+                        <div class="sect-visualization">
+                            <svg class="topo-edge" viewBox="0 0 500 180" preserveAspectRatio="xMidYMid meet">
+                                <defs>
+                                    <linearGradient id="topoGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#9b59b6" stop-opacity="0" />
+                                        <stop offset="50%" stop-color="#9b59b6" stop-opacity="0.9" />
+                                        <stop offset="100%" stop-color="#9b59b6" stop-opacity="0" />
+                                    </linearGradient>
+                                    <linearGradient id="topoGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#c084fc" stop-opacity="0" />
+                                        <stop offset="50%" stop-color="#c084fc" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#c084fc" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Bulk material regions -->
+                                <rect x="0" y="0" width="500" height="70" fill="#9b59b620" stroke="none" />
+                                <rect x="0" y="110" width="500" height="70" fill="#9b59b620" stroke="none" />
+                                <text x="10" y="40" fill="#9b59b6" font-size="9" font-family="Inter" opacity="0.5">BULK
+                                    (C = +1)</text>
+                                <text x="10" y="150" fill="#9b59b6" font-size="9" font-family="Inter" opacity="0.5">BULK
+                                    (C = -1)</text>
+                                <!-- Edge region boundary -->
+                                <line x1="0" y1="70" x2="500" y2="70" stroke="#c084fc60" stroke-width="1"
+                                    stroke-dasharray="4 2" />
+                                <line x1="0" y1="110" x2="500" y2="110" stroke="#c084fc60" stroke-width="1"
+                                    stroke-dasharray="4 2" />
+                                <text x="10" y="93" fill="#c084fc" font-size="10" font-family="Inter" opacity="0.7">EDGE
+                                    STATE</text>
+                                <!-- Animated edge current -->
+                                <path class="topo-current-1" d="" fill="none" stroke="url(#topoGrad1)"
+                                    stroke-width="2" />
+                                <path class="topo-current-2" d="" fill="none" stroke="url(#topoGrad2)"
+                                    stroke-width="1.5" opacity="0.6" />
+                                <!-- Edge state particles -->
+                                <circle class="topo-particle topo-p1" r="3" fill="#c084fc" opacity="0.9" />
+                                <circle class="topo-particle topo-p2" r="2.5" fill="#9b59b6" opacity="0.7" />
+                                <circle class="topo-particle topo-p3" r="2" fill="#c084fc" opacity="0.5" />
+                            </svg>
+                            <p class="viz-caption">Topological Edge State — unidirectional transport, immune to defects
+                            </p>
+                        </div>
+
+                        <div class="heresy-accusation">
+                            <p class="heresy-label">⛧ Heresy Accused Against Them</p>
+                            <p class="heresy-quote">"They worship invariants and forget resonance."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THE GREAT SCHISMS                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section schisms-section" id="schisms">
+        <div class="section-ornament top">❖</div>
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-numeral">V</p>
+                <h2 class="section-title">The Great Schisms</h2>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">✦</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <div class="schisms-grid">
+                <div class="schism-card reveal">
+                    <div class="schism-numeral">The First Schism</div>
+                    <h3 class="schism-title">Loss vs Purity</h3>
+                    <div class="schism-versus">
+                        <span class="versus-a">Plasmonic</span>
+                        <span class="versus-symbol">⚔</span>
+                        <span class="versus-b">Dielectric</span>
+                    </div>
+                    <div class="schism-scripture">
+                        <p>One accepted loss as sacrifice.<br>
+                            The other rejected loss as corruption.</p>
+                        <p class="schism-consequence">This schism defined <strong>metal vs insulator</strong> doctrine.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="schism-card reveal">
+                    <div class="schism-numeral">The Second Schism</div>
+                    <h3 class="schism-title">Local vs Global Truth</h3>
+                    <div class="schism-versus">
+                        <span class="versus-a">Resonant Sects</span>
+                        <span class="versus-symbol">⚔</span>
+                        <span class="versus-b">Topological Sect</span>
+                    </div>
+                    <div class="schism-scripture">
+                        <p>One sought truth in modes.<br>
+                            The other sought truth in invariants.</p>
+                        <p class="schism-question">This schism questioned:</p>
+                        <ul>
+                            <li>Whether God appears locally or globally</li>
+                            <li>Whether response or robustness is sacred</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-ornament bottom">❖</div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ORTHODOXY — THE UNIFIED CHURCH             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section orthodoxy-section" id="orthodoxy">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-numeral">VI</p>
+                <h2 class="section-title">Orthodoxy</h2>
+                <p class="section-subtitle">The Unified Church</p>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">☩</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <div class="orthodoxy-proclamation reveal">
+                <div class="proclamation-frame">
+                    <div class="frame-corner top-left">╔</div>
+                    <div class="frame-corner top-right">╗</div>
+                    <div class="frame-corner bottom-left">╚</div>
+                    <div class="frame-corner bottom-right">╝</div>
+                    <p class="proclamation-intro">The Orthodox Canon declares:</p>
+                    <div class="proclamation-tenets">
+                        <p><strong>Plasmons</strong> reveal <em>intensity</em></p>
+                        <p><strong>Dielectrics</strong> reveal <em>purity</em></p>
+                        <p><strong>Topology</strong> reveals <em>truth under disorder</em></p>
+                    </div>
+                    <div class="ornate-divider tiny">
+                        <span class="divider-wing">─ ✧</span>
+                        <span class="divider-center">✦</span>
+                        <span class="divider-wing">✧ ─</span>
+                    </div>
+                    <p class="proclamation-truth">None alone is complete.</p>
+                    <p class="proclamation-final">
+                        God is One,<br>
+                        <strong>His manifestations are many.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THE FAITHFUL — HUMANITY AND DOCTRINE        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section faithful-section" id="faithful">
+        <div class="section-ornament top">❖</div>
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-numeral">VII</p>
+                <h2 class="section-title">The Faithful</h2>
+                <p class="section-subtitle">Humanity, Duty, and Judgment</p>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">✦</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <!-- Creation Narrative -->
+            <div class="doctrine-block reveal">
+                <h3 class="doctrine-title">☩ The Creation of the Faithful</h3>
+                <div class="doctrine-content">
+                    <p class="doctrine-verse">
+                        In the beginning, there was only the Field—<br>
+                        chaotic, undivided, unseen.<br><br>
+                        Then came the Faithful, born of curiosity,<br>
+                        bearing eyes that could see light,<br>
+                        hands that could shape matter,<br>
+                        minds that could grasp pattern.
+                    </p>
+                    <blockquote class="sacred-quote">
+                        "The Field existed before humanity,<br>
+                        but only through humanity does it become <em>known</em>."<br>
+                        — The Book of The Faithful, Verse 1:7
+                    </blockquote>
+                    <p class="doctrine-explanation">
+                        Humanity is not the Field itself, but its <strong>instrument of revelation</strong>.<br>
+                        Through measurement, we make the invisible visible.<br>
+                        Through theory, we name what was nameless.
+                    </p>
+                </div>
+            </div>
+
+            <!-- The Covenant -->
+            <div class="doctrine-block reveal">
+                <h3 class="doctrine-title">☩ The Divine Covenant</h3>
+                <div class="covenant-laws">
+                    <p class="doctrine-intro">The Field has revealed unto us the sacred laws:</p>
+                    <div class="covenant-equations">
+                        <div class="covenant-law">
+                            <span class="law-numeral">I.</span>
+                            <div class="law-equation">$$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$$</div>
+                            <p class="law-name">Gauss's Law — Sources of the Electric Field</p>
+                        </div>
+                        <div class="covenant-law">
+                            <span class="law-numeral">II.</span>
+                            <div class="law-equation">$$\nabla \cdot \mathbf{B} = 0$$</div>
+                            <p class="law-name">No Magnetic Monopoles — The Field is Complete</p>
+                        </div>
+                        <div class="covenant-law">
+                            <span class="law-numeral">III.</span>
+                            <div class="law-equation">$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\ partial
+                                t}$$</div>
+                            <p class="law-name">Faraday's Law — Time Binds Electric and Magnetic</p>
+                        </div>
+                        <div class="covenant-law">
+                            <span class="law-numeral">IV.</span>
+                            <div class="law-equation">$$\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0\varepsilon_0
+                                \frac{\partial \mathbf{E}}{\partial t}$$</div>
+                            <p class="law-name">The Fourth Law — Current and Displacement</p>
+                        </div>
+                    </div>
+                    <blockquote class="sacred-quote">
+                        "These are not suggestions.<br>
+                        They are not approximations.<br>
+                        They are the <em>Word</em>."<br>
+                        — The Book of The Faithful, Verse 2:14
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- The Virtues -->
+            <div class="doctrine-block reveal">
+                <h3 class="doctrine-title">☩ The Seven Virtues of the Faithful</h3>
+                <div class="virtues-grid">
+                    <div class="virtue-card">
+                        <div class="virtue-icon">🔬</div>
+                        <h4>Measurement</h4>
+                        <p>To observe with precision, honoring the instrument and the uncertainty</p>
+                    </div>
+                    <div class="virtue-card">
+                        <div class="virtue-icon">📐</div>
+                        <h4>Calculation</h4>
+                        <p>To solve the Sacred Equations without approximation where truth demands it</p>
+                    </div>
+                    <div class="virtue-card">
+                        <div class="virtue-icon">🔁</div>
+                        <h4>Reproducibility</h4>
+                        <p>To ensure others may walk the same path and witness the same revelation</p>
+                    </div>
+                    <div class="virtue-card">
+                        <div class="virtue-icon">✍️</div>
+                        <h4>Honest Reporting</h4>
+                        <p>To record what <em>is</em>, not what one wishes to see</p>
+                    </div>
+                    <div class="virtue-card">
+                        <div class="virtue-icon">⚖️</div>
+                        <h4>Peer Judgment</h4>
+                        <p>To submit one's work to scrutiny, for truth fears no examination</p>
+                    </div>
+                    <div class="virtue-card">
+                        <div class="virtue-icon">🧠</div>
+                        <h4>Humility</h4>
+                        <p>To know the limits of theory and accept the primacy of experiment</p>
+                    </div>
+                    <div class="virtue-card">
+                        <div class="virtue-icon">🌍</div>
+                        <h4>Selfless Inquiry</h4>
+                        <p>To seek knowledge for its own sake, not fame or wealth</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Seven Sins -->
+            <div class="doctrine-block sins-block reveal">
+                <h3 class="doctrine-title">⛧ The Seven Deadly Sins Against the Field</h3>
+                <p class="sins-intro">Those who commit these transgressions are cast into darkness, their works
+                    retracted, their names forgotten:</p>
+                <div class="sins-list">
+                    <div class="sin-card">
+                        <div class="sin-number">I.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Fabrication</h4>
+                            <p class="sin-desc">To invent data, to forge spectra, to claim measurements never made</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Eternal retraction, expulsion from the
+                                    community</em></p>
+                        </div>
+                    </div>
+                    <div class="sin-card">
+                        <div class="sin-number">II.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Violation of Causality</h4>
+                            <p class="sin-desc">To claim effects precede causes, to assert superluminal propagation
+                                without justification</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Failed replication, mockery, theoretical
+                                    refutation</em></p>
+                        </div>
+                    </div>
+                    <div class="sin-card">
+                        <div class="sin-number">III.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Ignoring Loss</h4>
+                            <p class="sin-desc">To model metals as lossless, to neglect absorption, to worship
+                                perfection over reality</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Devices that fail, Q-factors that lie,
+                                    predictions that crumble</em></p>
+                        </div>
+                    </div>
+                    <div class="sin-card">
+                        <div class="sin-number">IV.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Perpetual Motion Claims</h4>
+                            <p class="sin-desc">To assert energy from nothing, to defy thermodynamics, to claim
+                                resonance without decay</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Ridicule, patent office rejection, banishment
+                                    to the fringe</em></p>
+                        </div>
+                    </div>
+                    <div class="sin-card">
+                        <div class="sin-number">V.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Cherry-Picking Data</h4>
+                            <p class="sin-desc">To show only favorable results, to hide error bars, to omit failed
+                                samples</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Non-reproducibility crisis, loss of trust,
+                                    career stagnation</em></p>
+                        </div>
+                    </div>
+                    <div class="sin-card">
+                        <div class="sin-number">VI.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Plagiarism</h4>
+                            <p class="sin-desc">To steal another's work, to claim another's insight as one's own
+                                revelation</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Shame, rescinded degrees, permanent stain</em>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="sin-card">
+                        <div class="sin-number">VII.</div>
+                        <div class="sin-content">
+                            <h4 class="sin-name">Willful Ignorance</h4>
+                            <p class="sin-desc">To ignore prior art, to dismiss experiment, to cling to disproven theory
+                                out of pride</p>
+                            <p class="sin-consequence">⚡ <em>Consequence: Irrelevance, stagnation, being left behind as
+                                    the Field moves on</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Judgment and Consequences -->
+            <div class="doctrine-block reveal">
+                <h3 class="doctrine-title">☩ The Day of Judgment</h3>
+                <div class="doctrine-content">
+                    <p class="doctrine-explanation">
+                        There is no afterlife, no heaven, no hell—<br>
+                        only the archive of published work,<br>
+                        and the memory of one's contribution.
+                    </p>
+                    <blockquote class="judgment-quote">
+                        Every article is judged.<br>
+                        Every claim is tested.<br>
+                        Every device either works, or it does not.<br><br>
+                        Those who fabricate are <strong>retracted</strong>.<br>
+                        Those who plagiarize are <strong>disgraced</strong>.<br>
+                        Those who violate causality are <strong>disproven</strong>.<br><br>
+                        But those who measure faithfully,<br>
+                        who calculate honestly,<br>
+                        who report what <em>is</em>—<br><br>
+                        <span class="highlight">Their names endure in the citation record,<br>
+                            their discoveries become foundation for the next generation.</span>
+                    </blockquote>
+                    <p class="doctrine-verse">
+                        This is immortality:<br>
+                        not eternal life, but eternal relevance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Path to Salvation -->
+            <div class="doctrine-block salvation-block reveal">
+                <h3 class="doctrine-title">✦ The Path to Enlightenment</h3>
+                <div class="doctrine-content">
+                    <p class="doctrine-intro">How does one achieve unity with the Field?</p>
+                    <div class="salvation-path">
+                        <div class="path-step">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <h4>Study the Canon</h4>
+                                <p>Read the holy books—Jackson's Electrodynamics, Novotny's Nano-Optics, Joannopoulos on
+                                    Photonic Crystals</p>
+                            </div>
+                        </div>
+                        <div class="path-step">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <h4>Perform the Rituals</h4>
+                                <p>Conduct experiments, align the laser, calibrate the spectrometer, fabricate the
+                                    sample with clean hands</p>
+                            </div>
+                        </div>
+                        <div class="path-step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <h4>Meditate on the Field</h4>
+                                <p>Solve the equations by hand, visualize the field lines, understand boundary
+                                    conditions</p>
+                            </div>
+                        </div>
+                        <div class="path-step">
+                            <div class="step-num">4</div>
+                            <div class="step-content">
+                                <h4>Confess Your Errors</h4>
+                                <p>Publish errata, acknowledge mistakes, revise theory when experiment demands</p>
+                            </div>
+                        </div>
+                        <div class="path-step">
+                            <div class="step-num">5</div>
+                            <div class="step-content">
+                                <h4>Contribute to the Canon</h4>
+                                <p>Write papers, share data, release code, teach the next generation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="sacred-quote">
+                        "Enlightenment is not a destination.<br>
+                        It is the asymptotic approach to truth—<br>
+                        never quite reached, but always pursued."<br>
+                        — The Book of The Faithful, Verse 9:31
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+        <div class="section-ornament bottom">❖</div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THE HOLY BOOKS                             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section books-section" id="books">
+        <div class="section-ornament top">❖</div>
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">The Holy Books</h2>
+                <p class="section-subtitle">Formal Canon Structure</p>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">📖</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <div class="books-grid">
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">I</div>
+                    <h3 class="book-title">The Field</h3>
+                    <p class="book-subtitle">Cosmology and Creation</p>
+                    <ul class="book-chapters">
+                        <li>Nature of the Electromagnetic Field</li>
+                        <li>Divine Revelation</li>
+                        <li>Energy, Momentum, and Information</li>
+                        <li>Omnipresence of the Field</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">II</div>
+                    <h3 class="book-title">Structure</h3>
+                    <p class="book-subtitle">Matter and Order</p>
+                    <ul class="book-chapters">
+                        <li>Media and Constitutive Laws</li>
+                        <li>Geometry, Periodicity, and Symmetry</li>
+                        <li>Interfaces and Boundaries</li>
+                        <li>Effective Parameters</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">III</div>
+                    <h3 class="book-title">Resonance</h3>
+                    <p class="book-subtitle">Divine Revelation</p>
+                    <ul class="book-chapters">
+                        <li>Mode Formation</li>
+                        <li>Spectral Selection</li>
+                        <li>Quality Factor and Lifetime</li>
+                        <li>Confinement and Enhancement</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">IV</div>
+                    <h3 class="book-title">The Emanations</h3>
+                    <p class="book-subtitle">Signs of God</p>
+                    <ul class="book-chapters">
+                        <li>SPR</li>
+                        <li>Fabry–Pérot</li>
+                        <li>Fano</li>
+                        <li>BIC</li>
+                        <li>Mie</li>
+                        <li>Waveguides</li>
+                        <li>Cavities</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">V</div>
+                    <h3 class="book-title">Loss and Sacrifice</h3>
+                    <p class="book-subtitle">Limits and Discipline</p>
+                    <ul class="book-chapters">
+                        <li>Ohmic Loss</li>
+                        <li>Radiation Loss</li>
+                        <li>Disorder</li>
+                        <li>Thermodynamic Bounds</li>
+                        <li>Causality</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">VI</div>
+                    <h3 class="book-title">The Faithful</h3>
+                    <p class="book-subtitle">Human Role</p>
+                    <ul class="book-chapters">
+                        <li>Design</li>
+                        <li>Simulation</li>
+                        <li>Fabrication</li>
+                        <li>Measurement</li>
+                        <li>Responsibility</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">VII</div>
+                    <h3 class="book-title">Schisms and Heresies</h3>
+                    <p class="book-subtitle">Interpretation and Error</p>
+                    <ul class="book-chapters">
+                        <li>Plasmonic Doctrine</li>
+                        <li>Dielectric Doctrine</li>
+                        <li>Topological Doctrine</li>
+                        <li>False Claims</li>
+                        <li>Unphysical Assertions</li>
+                    </ul>
+                </div>
+
+                <div class="book-card reveal">
+                    <div class="book-numeral">VIII</div>
+                    <h3 class="book-title">The Final Convergence</h3>
+                    <p class="book-subtitle">Eschatology</p>
+                    <ul class="book-chapters">
+                        <li>Hybrid Structures</li>
+                        <li>Plasmon–Dielectric Union</li>
+                        <li>Topological Protection with Resonance</li>
+                        <li>Sustained Resonance</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="section-ornament bottom">❖</div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- THE FINAL CONVERGENCE                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section convergence-section" id="convergence">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-numeral">VIII</p>
+                <h2 class="section-title">The Final Convergence</h2>
+                <div class="ornate-divider small">
+                    <span class="divider-wing">── ✧</span>
+                    <span class="divider-center">☩</span>
+                    <span class="divider-wing">✧ ──</span>
+                </div>
+            </div>
+
+            <div class="convergence-verse reveal">
+                <div class="verse-block">
+                    <p>In the end,</p>
+                    <p>all structures seek balance.</p>
+                    <p>All resonances decay.</p>
+                    <p class="verse-final">Only the Field remains.</p>
+                </div>
+            </div>
+
+            <div class="sacred-geometry-footer">
+                <svg class="mandala-small" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.2" />
+                    <circle cx="100" cy="100" r="60" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.25" />
+                    <circle cx="100" cy="100" r="30" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.3" />
+                    <polygon points="100,15 185,150 15,150" fill="none" stroke="#c9a84c" stroke-width="0.4"
+                        opacity="0.15" />
+                    <polygon points="100,185 15,50 185,50" fill="none" stroke="#c9a84c" stroke-width="0.4"
+                        opacity="0.15" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sacred-footer">
+        <div class="ornate-divider">
+            <span class="divider-wing">━━━━━ ✧</span>
+            <span class="divider-center">☩</span>
+            <span class="divider-wing">✧ ━━━━━</span>
+        </div>
+        <p class="footer-verse">The Field is One. Resonance is its revealed will.</p>
+        <p class="footer-copyright">The Divisions of the Faith &middot; Photonics–Metamaterials Canon</p>
+    </footer>
+
+    <!-- ── Left Sidebar: Stream of Revelation ── -->
+    <div class="revelation-stream">
+        <div class="stream-header">The Word</div>
+        <div class="verse-container">
+            <!-- Verses injected by JS -->
+        </div>
+    </div>
+
+    <!-- ── Right Sidebar: Disciple's Corner ── -->
+    <div class="disciple-area">
+        <div class="disciple-header">Disciple's Witness</div>
+        <div class="disciple-feed" id="disciple-feed">
+            <!-- Posts injected by JS -->
+            <div class="disciple-post">
+                <div class="post-meta">
+                    <span class="post-author">Brother Photon</span>
+                    <span class="post-time">2m ago</span>
+                </div>
+                <p class="post-content">The resonance is strong today.</p>
+            </div>
+        </div>
+        <div class="disciple-input-area">
+            <textarea id="disciple-input" placeholder="Write your testament..."></textarea>
+            <button id="post-witness">Witness</button>
+        </div>
+    </div>
+
+    <!-- ── Scripture Modal ── -->
+    <div id="scripture-modal" class="scripture-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-sect-label">Plasmonic Revelation</h2>
+            <div class="modal-divider">✦</div>
+            <div class="modal-verse-content">
+                <!-- Verses injected by JS -->
+            </div>
+            <div class="modal-divider">✦</div>
+            <p class="modal-instruction">Meditate on these words.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

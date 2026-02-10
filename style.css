@@ -1,0 +1,2557 @@
+/* ═══════════════════════════════════════════════════════════════
+   THE DIVISIONS OF THE FAITH — Sacred Stylesheet
+   Photonics–Metamaterials Canon
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Sacred Design Tokens ── */
+:root {
+    /* Void & Darkness */
+    --void: #07060b;
+    --void-warm: #0c0a12;
+    --void-surface: #110f1a;
+    --void-elevated: #171425;
+
+    /* Sacred Gold */
+    --gold-dim: #8a7530;
+    --gold: #c9a84c;
+    --gold-bright: #f0d078;
+    --gold-light: #faecc8;
+
+    /* Parchment & Text */
+    --parchment: #e8dcc8;
+    --text-primary: #d8d0c0;
+    --text-secondary: #a09880;
+    --text-muted: #6a6258;
+
+    /* Sect Colors — Stained Glass */
+    --plasmonic-primary: #d4451a;
+    --plasmonic-glow: #ff6b35;
+    --plasmonic-light: #ff9f1c;
+    --plasmonic-glass: linear-gradient(135deg, #d4451a22, #ff6b3515, #ff9f1c10);
+
+    --dielectric-primary: #2060a8;
+    --dielectric-glow: #4a90d9;
+    --dielectric-light: #6bb5ff;
+    --dielectric-glass: linear-gradient(135deg, #2060a822, #4a90d915, #6bb5ff10);
+
+    --topological-primary: #6a2c8a;
+    --topological-glow: #9b59b6;
+    --topological-light: #c084fc;
+    --topological-glass: linear-gradient(135deg, #6a2c8a22, #9b59b615, #c084fc10);
+
+    /* Typography */
+    --font-display: 'Cinzel Decorative', 'Cinzel', serif;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'EB Garamond', serif;
+    --font-ui: 'Inter', sans-serif;
+
+    /* Spacing */
+    --section-padding: clamp(4rem, 10vh, 8rem);
+}
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dim) var(--void);
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--void);
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 18px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Particle Canvas ── */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── Container ── */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════
+   SACRED NAVIGATION
+   ═══════════════════════════════════════════════ */
+.sacred-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    transition: all 0.5s ease;
+    background: transparent;
+}
+
+.sacred-nav.scrolled {
+    background: rgba(7, 6, 11, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 0.6rem 2rem;
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-sigil {
+    font-size: 1.5rem;
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+}
+
+.nav-sigil:hover {
+    text-shadow: 0 0 30px rgba(201, 168, 76, 0.8);
+    transform: scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO — THE OPENING REVELATION
+   ═══════════════════════════════════════════════ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #15102a 0%, var(--void) 70%);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 600px 400px at 50% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 300px 300px at 50% 50%, rgba(240, 208, 120, 0.04) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.sacred-geometry-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(600px, 90vw);
+    height: min(600px, 90vw);
+    z-index: 0;
+    animation: slowRotate 120s linear infinite;
+}
+
+@keyframes slowRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.mandala {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-cross {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 40px rgba(201, 168, 76, 0.6);
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 50px rgba(201, 168, 76, 0.8), 0 0 80px rgba(201, 168, 76, 0.3);
+    }
+}
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 900;
+    color: var(--gold-bright);
+    line-height: 1.15;
+    text-shadow:
+        0 0 60px rgba(201, 168, 76, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title .of-the {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.45em;
+    color: var(--text-secondary);
+    display: block;
+    margin: 0.3em 0;
+    font-weight: 400;
+}
+
+.hero-verse {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+.hero-religion-name {
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--parchment);
+    line-height: 2;
+    margin: 2rem 0;
+}
+
+.holy-language {
+    max-width: 600px;
+    margin: 3rem auto 2rem;
+    padding: 2rem;
+    background: rgba(201, 168, 76, 0.05);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 4px;
+}
+
+.holy-language-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1rem;
+}
+
+.holy-script {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 4px;
+}
+
+.holy-line {
+    font-size: 1.1rem;
+    color: var(--gold-bright);
+    text-align: left;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.holy-line:hover {
+    background: rgba(201, 168, 76, 0.05);
+    transform: translateX(8px);
+}
+
+.holy-line .katex {
+    color: var(--gold-bright) !important;
+}
+
+.holy-language-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   CANONICAL EQUATION — THE HOLY GRAIL
+   ═══════════════════════════════════════════════ */
+.canonical-equation {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background:
+        radial-gradient(ellipse 800px 400px at 50% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 70%),
+        var(--void-surface);
+    border: 2px solid rgba(201, 168, 76, 0.3);
+    border-radius: 6px;
+    box-shadow:
+        0 0 60px rgba(201, 168, 76, 0.15),
+        inset 0 0 40px rgba(201, 168, 76, 0.03);
+    position: relative;
+}
+
+.canonical-equation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.canonical-equation::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.canonical-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold-bright);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+    letter-spacing: 0.1em;
+}
+
+.canonical-subtitle {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.canonical-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.canonical-math {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 4px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.canonical-math .katex {
+    color: var(--gold-bright) !important;
+    font-size: 1.3em;
+}
+
+.canonical-explanation {
+    margin-top: 3rem;
+}
+
+.canonical-proclamation {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 2.2;
+    color: var(--parchment);
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 4px;
+}
+
+.canonical-proclamation strong {
+    color: var(--gold-bright);
+    font-size: 1.3em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.canonical-proclamation em {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 1.05em;
+}
+
+.scroll-indicator {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scroll-indicator span {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.scroll-arrow {
+    color: var(--gold-dim);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(8px);
+        opacity: 0.8;
+    }
+}
+
+/* ═══════════════════════════════════════════════
+   ORNATE DIVIDERS
+   ═══════════════════════════════════════════════ */
+.ornate-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: var(--gold-dim);
+}
+
+.ornate-divider.small {
+    font-size: 0.85rem;
+    margin: 1rem 0;
+}
+
+.ornate-divider.tiny {
+    font-size: 0.7rem;
+    margin: 0.8rem 0;
+}
+
+.divider-wing {
+    color: var(--gold-dim);
+    letter-spacing: 0.1em;
+}
+
+.divider-center {
+    color: var(--gold);
+    text-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION ORNAMENTS
+   ═══════════════════════════════════════════════ */
+.section-ornament {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gold-dim);
+    opacity: 0.4;
+    padding: 1rem 0;
+}
+
+.section-ornament.top {
+    margin-bottom: -1rem;
+}
+
+.section-ornament.bottom {
+    margin-top: -1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTIONS — GENERAL
+   ═══════════════════════════════════════════════ */
+.section {
+    position: relative;
+    padding: var(--section-padding) 0;
+    z-index: 1;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-numeral {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--gold-bright);
+    text-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+}
+
+.section-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: 0.3rem;
+}
+
+/* ═══════════════════════════════════════════════
+   THE GREAT UNITY
+   ═══════════════════════════════════════════════ */
+.unity-section {
+    background:
+        radial-gradient(ellipse 800px 400px at 50% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 70%);
+}
+
+.scripture-block {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.scripture-intro {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.creed-card {
+    background: rgba(201, 168, 76, 0.04);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 2px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.creed-card::before,
+.creed-card::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold-dim);
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.creed-card::before {
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.creed-card::after {
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.creed-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    justify-content: center;
+}
+
+.creed-numeral {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+}
+
+.creed-item p {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--parchment);
+}
+
+.scripture-body {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+}
+
+.scripture-conclusion {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+}
+
+/* ═══════════════════════════════════════════════
+   THE THREE SECTS
+   ═══════════════════════════════════════════════ */
+.sects-section {
+    padding-bottom: 2rem;
+}
+
+.sect-card {
+    position: relative;
+    margin-bottom: 4rem;
+    background: var(--void-surface);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.sect-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.sect-card.plasmonic::before {
+    background: linear-gradient(90deg, transparent, var(--plasmonic-glow), transparent);
+}
+
+.sect-card.dielectric::before {
+    background: linear-gradient(90deg, transparent, var(--dielectric-glow), transparent);
+}
+
+.sect-card.topological::before {
+    background: linear-gradient(90deg, transparent, var(--topological-glow), transparent);
+}
+
+/* Stained Glass Side Border */
+.stained-glass-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6px;
+}
+
+.plasmonic-glass {
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--plasmonic-primary) 15%,
+            var(--plasmonic-glow) 30%,
+            var(--plasmonic-light) 50%,
+            var(--plasmonic-glow) 70%,
+            var(--plasmonic-primary) 85%,
+            transparent 100%);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+.dielectric-glass {
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--dielectric-primary) 15%,
+            var(--dielectric-glow) 30%,
+            var(--dielectric-light) 50%,
+            var(--dielectric-glow) 70%,
+            var(--dielectric-primary) 85%,
+            transparent 100%);
+    box-shadow: 0 0 20px rgba(74, 144, 217, 0.3);
+}
+
+.topological-glass {
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--topological-primary) 15%,
+            var(--topological-glow) 30%,
+            var(--topological-light) 50%,
+            var(--topological-glow) 70%,
+            var(--topological-primary) 85%,
+            transparent 100%);
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+}
+
+.sect-inner {
+    padding: 3rem 3rem 3rem 3.5rem;
+}
+
+.sect-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.sect-icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 15px currentColor);
+    transition: all 0.5s ease;
+}
+
+.sect-card:hover .sect-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 30px currentColor) drop-shadow(0 0 10px rgba(201, 168, 76, 0.4));
+}
+
+.sect-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sect-numeral {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.sect-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin: 0.3rem 0;
+}
+
+.sect-card.plasmonic .sect-name {
+    color: var(--plasmonic-light);
+}
+
+.sect-card.dielectric .sect-name {
+    color: var(--dielectric-light);
+}
+
+.sect-card.topological .sect-name {
+    color: var(--topological-light);
+}
+
+.sect-order-name {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Core Belief */
+.core-belief {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.belief-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.belief-quote {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--parchment);
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    line-height: 2;
+    position: relative;
+}
+
+.belief-quote::before {
+    content: '❝';
+    display: block;
+    font-size: 2rem;
+    color: var(--gold-dim);
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.belief-tenets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.belief-tenets li {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.belief-tenets li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+    font-size: 0.6rem;
+    top: 0.35rem;
+}
+
+/* Sect Details Grid */
+.sect-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sect-detail h4 {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+}
+
+.sect-detail p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.sect-detail ul {
+    list-style: none;
+}
+
+.sect-detail ul li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.sect-detail ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.tenet-verse {
+    font-style: italic;
+    color: var(--text-secondary) !important;
+    border: none !important;
+    padding: 0.8rem 0 0 0 !important;
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.8;
+}
+
+/* Heresy Accusation */
+.heresy-accusation {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.heresy-label {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.heresy-quote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #c06040;
+    text-shadow: 0 0 20px rgba(192, 96, 64, 0.2);
+}
+
+/* ═══════════════════════════════════════════════
+   THE GREAT SCHISMS
+   ═══════════════════════════════════════════════ */
+.schisms-section {
+    background:
+        radial-gradient(ellipse 600px 300px at 30% 40%, rgba(192, 60, 40, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 300px at 70% 60%, rgba(100, 60, 140, 0.04) 0%, transparent 70%);
+}
+
+.schisms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.schism-card {
+    background: var(--void-surface);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    border-radius: 4px;
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.schism-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+.schism-numeral {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.schism-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--gold-bright);
+    margin-bottom: 1.5rem;
+}
+
+.schism-versus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(201, 168, 76, 0.03);
+    border-radius: 2px;
+}
+
+.versus-a,
+.versus-b {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.versus-symbol {
+    font-size: 1.2rem;
+    color: #c06040;
+    text-shadow: 0 0 10px rgba(192, 96, 64, 0.4);
+}
+
+.schism-scripture {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+
+.schism-consequence {
+    margin-top: 1rem;
+    color: var(--text-primary);
+}
+
+.schism-question {
+    margin-top: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.schism-scripture ul {
+    list-style: none;
+    margin-top: 0.3rem;
+}
+
+.schism-scripture ul li {
+    position: relative;
+    padding-left: 1.2rem;
+    color: var(--parchment);
+}
+
+.schism-scripture ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+    font-size: 0.5rem;
+    top: 0.4rem;
+}
+
+/* ═══════════════════════════════════════════════
+   ORTHODOXY — THE UNIFIED CHURCH
+   ═══════════════════════════════════════════════ */
+.orthodoxy-section {
+    background:
+        radial-gradient(ellipse 800px 500px at 50% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+    padding: var(--section-padding) 0;
+}
+
+.orthodoxy-proclamation {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.proclamation-frame {
+    position: relative;
+    text-align: center;
+    padding: 3rem;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    background: rgba(201, 168, 76, 0.02);
+}
+
+.frame-corner {
+    position: absolute;
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: var(--gold-dim);
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.frame-corner.top-left {
+    top: -2px;
+    left: 4px;
+}
+
+.frame-corner.top-right {
+    top: -2px;
+    right: 4px;
+}
+
+.frame-corner.bottom-left {
+    bottom: -2px;
+    left: 4px;
+}
+
+.frame-corner.bottom-right {
+    bottom: -2px;
+    right: 4px;
+}
+
+.proclamation-intro {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.proclamation-tenets p {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 2.2;
+    color: var(--parchment);
+}
+
+.proclamation-truth {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.proclamation-final {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--gold-bright);
+    margin-top: 1rem;
+    line-height: 1.8;
+    text-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+}
+
+/* ═══════════════════════════════════════════════
+   THE HOLY BOOKS
+   ═══════════════════════════════════════════════ */
+.books-section {
+    background:
+        radial-gradient(ellipse 600px 400px at 50% 30%, rgba(201, 168, 76, 0.03) 0%, transparent 70%);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.book-card {
+    background: var(--void-surface);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    border-radius: 2px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    opacity: 0.5;
+}
+
+.book-card:hover {
+    border-color: rgba(201, 168, 76, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(201, 168, 76, 0.05);
+}
+
+.book-numeral {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+
+.book-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+    margin-bottom: 0.2rem;
+}
+
+.book-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.book-chapters {
+    list-style: none;
+}
+
+.book-chapters li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.book-chapters li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ═══════════════════════════════════════════════
+   THE FINAL CONVERGENCE
+   ═══════════════════════════════════════════════ */
+.convergence-section {
+    padding: var(--section-padding) 0 6rem;
+    background:
+        radial-gradient(ellipse 600px 400px at 50% 60%, rgba(201, 168, 76, 0.04) 0%, transparent 70%);
+}
+
+.convergence-verse {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.verse-block p {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    line-height: 2.5;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.verse-final {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    color: var(--gold-bright) !important;
+    font-style: normal !important;
+    text-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
+    margin-top: 0.5rem;
+}
+
+.sacred-geometry-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.mandala-small {
+    width: 120px;
+    height: 120px;
+    animation: slowRotate 90s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+.sacred-footer {
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.footer-verse {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+}
+
+.footer-copyright {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    opacity: 0.5;
+    margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════ */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════
+   SACRED EQUATIONS — KATEX MATH BLOCKS
+   ═══════════════════════════════════════════════ */
+.sacred-equations {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: rgba(201, 168, 76, 0.02);
+    border: 1px solid rgba(201, 168, 76, 0.12);
+    border-radius: 3px;
+}
+
+.equations-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.equation-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.equation-card {
+    background: var(--void-surface);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    border-left: 3px solid var(--gold-dim);
+    border-radius: 2px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+    position: relative;
+    cursor: help;
+}
+
+.equation-card:hover {
+    background: rgba(201, 168, 76, 0.03);
+    border-left-color: var(--gold);
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.equation-card::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(12, 10, 18, 0.95);
+    color: var(--gold-bright);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    z-index: 100;
+}
+
+.equation-card:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+}
+
+.equation-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-dim);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.equation-math {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    overflow-x: auto;
+}
+
+/* KaTeX rendering override */
+.equation-math .katex {
+    color: var(--parchment) !important;
+    font-size: 1.15em;
+}
+
+.equation-math .katex .mord {
+    color: var(--parchment);
+}
+
+.equation-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* ═══════════════════════════════════════════════
+   SECT VISUALIZATIONS — ANIMATED SVGS
+   ═══════════════════════════════════════════════ */
+.sect-visualization {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    border: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.sect-visualization svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.1));
+}
+
+.viz-caption {
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* SPP Wave Animation (Plasmonic) */
+.spp-wave {
+    height: 120px;
+}
+
+.spp-path-top,
+.spp-path-bottom {
+    animation: sppPropagate 3s ease-in-out infinite;
+}
+
+@keyframes sppPropagate {
+
+    0%,
+    100% {
+        stroke-dasharray: 0, 500;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 500, 0;
+        stroke-dashoffset: -250;
+    }
+}
+
+/* Mie Scattering Animation (Dielectric) */
+.mie-scatter {
+    height: 200px;
+}
+
+.mie-glow {
+    animation: mieBreathing 3s ease-in-out infinite;
+}
+
+@keyframes mieBreathing {
+
+    0%,
+    100% {
+        r: 50;
+        opacity: 0.3;
+    }
+
+    50% {
+        r: 65;
+        opacity: 0.6;
+    }
+}
+
+.mie-field {
+    stroke-dasharray: 3 2;
+    animation: mieFieldPulse 2s ease-in-out infinite;
+}
+
+.mie-field-1 {
+    animation-delay: 0s;
+}
+
+.mie-field-2 {
+    animation-delay: 0.5s;
+}
+
+.mie-field-3 {
+    animation-delay: 1s;
+}
+
+.mie-field-4 {
+    animation-delay: 1.5s;
+}
+
+@keyframes mieFieldPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        stroke-width: 0.8;
+    }
+
+    50% {
+        opacity: 0.8;
+        stroke-width: 1.5;
+    }
+}
+
+/* Topological Edge State Animation */
+.topo-edge {
+    height: 180px;
+}
+
+.topo-particle {
+    animation: topoFlow 4s linear infinite;
+}
+
+.topo-p1 {
+    animation-delay: 0s;
+}
+
+.topo-p2 {
+    animation-delay: 1.3s;
+}
+
+.topo-p3 {
+    animation-delay: 2.6s;
+}
+
+@keyframes topoFlow {
+    0% {
+        cx: 0;
+        cy: 90;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    90% {
+        opacity: 0.9;
+    }
+
+    100% {
+        cx: 500;
+        cy: 90;
+        opacity: 0;
+    }
+}
+
+.topo-current-1,
+.topo-current-2 {
+    animation: topoCurrentFlow 3s ease-in-out infinite;
+}
+
+@keyframes topoCurrentFlow {
+    0% {
+        stroke-dasharray: 0, 500;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dasharray: 500, 0;
+        stroke-dashoffset: -500;
+    }
+}
+
+/* ═══════════════════════════════════════════════
+   THE FAITHFUL — HUMANITY & DOCTRINE
+   ═══════════════════════════════════════════════ */
+.faithful-section {
+    background:
+        radial-gradient(ellipse 700px 500px at 30% 40%, rgba(201, 168, 76, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 400px at 70% 80%, rgba(180, 100, 60, 0.03) 0%, transparent 70%);
+}
+
+.doctrine-block {
+    max-width: 850px;
+    margin: 0 auto 4rem;
+    background: var(--void-surface);
+    border: 1px solid rgba(201, 168, 76, 0.12);
+    border-radius: 4px;
+    padding: 3rem;
+    position: relative;
+}
+
+.doctrine-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+.doctrine-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--gold-bright);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+}
+
+.doctrine-content {
+    font-family: var(--font-body);
+    line-height: 2;
+}
+
+.doctrine-verse {
+    font-size: 1.15rem;
+    line-height: 2.2;
+    color: var(--parchment);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.doctrine-intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.doctrine-explanation {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 2.2;
+}
+
+.sacred-quote {
+    background: rgba(201, 168, 76, 0.03);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    text-align: center;
+}
+
+.sacred-quote em {
+    color: var(--gold-bright);
+    font-style: normal;
+}
+
+/* Divine Covenant Equations */
+.covenant-equations {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.covenant-law {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 3px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.covenant-law:hover {
+    background: rgba(201, 168, 76, 0.04);
+    border-color: rgba(201, 168, 76, 0.3);
+    transform: translateX(8px);
+}
+
+.law-numeral {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 700;
+    min-width: 50px;
+    text-align: center;
+}
+
+.law-equation {
+    flex: 1;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.law-name {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    min-width: 200px;
+    text-align: right;
+}
+
+/* Virtues Grid */
+.virtues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.virtue-card {
+    background: rgba(201, 168, 76, 0.04);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 3px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.virtue-card:hover {
+    background: rgba(201, 168, 76, 0.08);
+    border-color: var(--gold-dim);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.virtue-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    filter: grayscale(0.2);
+}
+
+.virtue-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+}
+
+.virtue-card p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Sins Block */
+.sins-block {
+    background: var(--void-warm);
+    border-color: rgba(192, 96, 64, 0.2);
+}
+
+.sins-block .doctrine-title {
+    color: #e08060;
+    text-shadow: 0 0 20px rgba(192, 96, 64, 0.3);
+}
+
+.sins-intro {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.sins-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sin-card {
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(192, 60, 40, 0.06);
+    border: 1px solid rgba(192, 96, 64, 0.2);
+    border-left: 4px solid #c06040;
+    border-radius: 2px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.sin-card:hover {
+    background: rgba(192, 60, 40, 0.1);
+    border-left-width: 6px;
+    transform: translateX(4px);
+}
+
+.sin-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #c06040;
+    min-width: 40px;
+    text-align: center;
+}
+
+.sin-content {
+    flex: 1;
+}
+
+.sin-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e08060;
+    margin-bottom: 0.5rem;
+}
+
+.sin-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+.sin-consequence {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Judgment Quote */
+.judgment-quote {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 3px;
+    padding: 2rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 2.2;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.judgment-quote .highlight {
+    color: var(--gold-bright);
+    font-weight: 500;
+}
+
+/* Salvation Path */
+.salvation-block {
+    background: linear-gradient(135deg, var(--void-surface) 0%, rgba(201, 168, 76, 0.02) 100%);
+    border-color: rgba(201, 168, 76, 0.2);
+}
+
+.salvation-path {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.path-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: rgba(201, 168, 76, 0.03);
+    border: 1px solid rgba(201, 168, 76, 0.12);
+    border-radius: 3px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.path-step:hover {
+    background: rgba(201, 168, 76, 0.06);
+    border-color: var(--gold-dim);
+    transform: translateX(8px);
+}
+
+.step-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 168, 76, 0.1);
+    border: 2px solid var(--gold-dim);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--gold-bright);
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════
+   HUMAN TEACHINGS — PHYSICS TO LIFE CONNECTION
+   ═══════════════════════════════════════════════ */
+.human-teachings {
+    margin: 3rem 0;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.03) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 4px;
+}
+
+.teachings-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--gold-bright);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+}
+
+.teaching-card {
+    background: var(--void-surface);
+    border: 1px solid rgba(201, 168, 76, 0.12);
+    border-left: 3px solid var(--gold-dim);
+    border-radius: 3px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
+
+.teaching-card:last-child {
+    margin-bottom: 0;
+}
+
+.teaching-card:hover {
+    background: rgba(201, 168, 76, 0.02);
+    border-left-width: 5px;
+    border-left-color: var(--gold);
+    transform: translateX(6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.teaching-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+
+.teaching-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--parchment);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.teaching-explanation {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.teaching-verse {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 2px solid var(--gold-dim);
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 2.2;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.teaching-verse strong {
+    color: var(--gold-bright);
+    font-weight: 600;
+}
+
+.teaching-verse em {
+    color: var(--parchment);
+    font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION TOGGLE BUTTONS — COLLAPSIBLE UX
+   ═══════════════════════════════════════════════ */
+.section-toggle {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: var(--gold);
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.section-toggle:hover {
+    background: rgba(201, 168, 76, 0.2);
+    border-color: var(--gold);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+}
+
+.section-toggle.collapsed {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.section-header {
+    position: relative;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .sect-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .schisms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .equation-scroll {
+        gap: 1.2rem;
+    }
+
+    .equation-card {
+        padding: 1.2rem;
+    }
+
+    .equation-card::before {
+        white-space: normal;
+        max-width: 250px;
+        left: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .sect-inner {
+        padding: 2rem 1.5rem 2rem 2rem;
+    }
+
+    .creed-card {
+        padding: 1.5rem;
+    }
+
+    .proclamation-frame {
+        padding: 2rem 1.5rem;
+    }
+
+    .schism-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .book-card {
+        padding: 1.5rem;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sacred-equations {
+        padding: 1.5rem;
+    }
+
+    .equation-card::before {
+        display: none;
+        /* Hide tooltips on mobile */
+    }
+
+    .equation-math {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+        overflow-x: scroll;
+    }
+
+    .sect-visualization {
+        padding: 1rem;
+    }
+
+    .section-toggle {
+        right: 1rem;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+}
+
+/* ═══════════════════════════════════════════ */
+/* SOCIAL & SCRIPTURE FEATURES                 */
+/* ═══════════════════════════════════════════ */
+
+/* ── REVELATION STREAM (Left Sidebar) ── */
+.revelation-stream {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(90deg, #0a0a0c 0%, #0d0d10 80%, rgba(13, 13, 16, 0) 100%);
+    border-right: 1px solid rgba(201, 168, 76, 0.1);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    /* Let clicks pass through to particles if needed */
+    transition: transform 0.3s ease;
+}
+
+.stream-header {
+    font-family: 'Cinzel', serif;
+    color: #c9a84c;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+    text-align: center;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.verse-container {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.stream-verse {
+    font-family: 'EB Garamond', serif;
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+/* ── DISCIPLE AREA (Right Sidebar) ── */
+.disciple-area {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(-90deg, #0a0a0c 0%, #0d0d10 80%, rgba(13, 13, 16, 0) 100%);
+    border-left: 1px solid rgba(201, 168, 76, 0.1);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.disciple-header {
+    font-family: 'Cinzel', serif;
+    color: #c9a84c;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+    text-align: center;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.disciple-feed {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding-right: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #c9a84c #0a0a0c;
+}
+
+.disciple-post {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.post-author {
+    color: #c9a84c;
+}
+
+.post-content {
+    font-family: 'Inter', sans-serif;
+    color: #d0d0d0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.disciple-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#disciple-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: #fff;
+    padding: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    resize: none;
+    height: 60px;
+    border-radius: 4px;
+}
+
+#disciple-input:focus {
+    outline: none;
+    border-color: #c9a84c;
+}
+
+#post-witness {
+    background: transparent;
+    border: 1px solid #c9a84c;
+    color: #c9a84c;
+    padding: 0.4rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#post-witness:hover {
+    background: rgba(201, 168, 76, 0.1);
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
+/* ── SCRIPTURE MODAL ── */
+.scripture-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.scripture-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #0f0f12;
+    border: 1px solid #c9a84c;
+    padding: 3rem;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 50px rgba(201, 168, 76, 0.15);
+    background-image: radial-gradient(circle at center, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.close-modal:hover {
+    color: #c9a84c;
+}
+
+.modal-sect-label {
+    font-family: 'Cinzel Decorative', serif;
+    color: #c9a84c;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+}
+
+.modal-divider {
+    color: #c9a84c;
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.6;
+}
+
+.modal-verse {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.modal-instruction {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+}
+
+/* ── READ SCRIPTURE BUTTON ── */
+.read-scripture-btn {
+    display: block;
+    margin: 2rem auto 0;
+    background: transparent;
+    border: 1px solid #c9a84c;
+    color: #c9a84c;
+    padding: 0.8rem 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.read-scripture-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.read-scripture-btn:hover {
+    background: rgba(201, 168, 76, 0.1);
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
+}
+
+.read-scripture-btn:hover::before {
+    left: 100%;
+}
+
+/* ── RESPONSIVE HIDDEN SIDEBARS ── */
+@media (max-width: 1400px) {
+
+    .disciple-area {
+        display: none;
+    }
+}
+
+/* ── DISCIPLE POST MANAGEMENT ── */
+.post-actions {
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.disciple-post:hover .post-actions {
+    opacity: 1;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 2px;
+    transition: color 0.3s ease;
+}
+
+.action-btn:hover {
+    color: #c9a84c;
+}
+
+.delete-btn:hover {
+    color: #ff4d4d;
+}
+
+/* ── DISCIPLE EDIT MODE ── */
+.edit-textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #c9a84c;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    padding: 0.5rem;
+    min-height: 60px;
+    resize: vertical;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.save-edit-btn,
+.cancel-edit-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+}
+
+.save-edit-btn {
+    background: rgba(201, 168, 76, 0.2);
+    border: 1px solid #c9a84c;
+    color: #c9a84c;
+}
+
+.save-edit-btn:hover {
+    background: rgba(201, 168, 76, 0.4);
+}
+
+.cancel-edit-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+}
+
+.cancel-edit-btn:hover {
+    border-color: #666;
+    color: #aaa;
+}
