@@ -161,6 +161,37 @@
 })();
 
 
+// ── Mobile Navigation Toggle ──
+(function () {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+
+    if (!navToggle || !navLinks) return;
+
+    // Toggle Menu
+    navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = !isExpanded ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+})();
+
+
 // ── Parallax for Sacred Geometry ──
 (function () {
     const geometry = document.querySelector('.sacred-geometry-bg');
